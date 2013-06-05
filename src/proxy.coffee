@@ -19,6 +19,6 @@ app.configure ->
 
 app.post '/', (req, res) ->
   client.rpush 'logstash', req.rawBody
-  res.send req.body
+  res.send(200)
 
 app.listen(3000);
