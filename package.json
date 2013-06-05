@@ -1,0 +1,23 @@
+{
+  "name": "nxlog-to-redis-proxy",
+  "version": "0.0.0",
+  "description": "nxlog-to-redis-proxy ====================",
+  "main": "lib/proxy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blakeblackshear/nxlog-to-redis-proxy.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "d78faafdfea75aa0f6f2fdbfe9f9ebdcbb3f3e84",
+  "dependencies": {
+    "express": "~3.2.6",
+    "redis": "~0.8.3",
+    "grunt": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7.0"
+  }
+}
