@@ -1,6 +1,11 @@
 express = require 'express'
 redis = require 'redis'
 app = express()
+
+options =
+  key: fs.readFileSync('/etc/nginx/ssl/logs.nextgxdx.com.key')
+  cert: fs.readFileSync('/etc/nginx/ssl/logs.nextgxdx.com.cert')
+
 client = redis.createClient()
 
 rawBody = (req, res, next) ->
@@ -21,4 +26,5 @@ app.post '/', (req, res) ->
   client.rpush 'logstash', req.rawBody
   res.send(200)
 
-app.listen(3000);
+server = require('https').createServer(options, app)
+server.listen(3000)
