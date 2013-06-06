@@ -1,6 +1,10 @@
 express = require 'express'
 redis = require 'redis'
 fs = require 'fs'
+https = require 'https'
+httpProxy = require 'http-proxy'
+
+# app to receive events
 app = express()
 
 options =
@@ -27,5 +31,11 @@ app.post '/:queue', (req, res) ->
   client.rpush req.params.queue, req.rawBody
   res.send(200)
 
-server = require('https').createServer(options, app)
+# Proxy for elasticsearch
+server = https.createServer(options, app)
 server.listen(443)
+
+proxy_options =
+  https: options
+
+httpProxy.createServer(9200, 'localhost', proxy_options).listen(8080)
