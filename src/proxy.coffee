@@ -8,8 +8,8 @@ httpProxy = require 'http-proxy'
 app = express()
 
 options =
-  key: fs.readFileSync('./ssl/logs.nextgxdx.com.key')
-  cert: fs.readFileSync('./ssl/logs.nextgxdx.com.crt')
+  key: fs.readFileSync('/opt/log-proxy/ssl/logs.nextgxdx.com.key')
+  cert: fs.readFileSync('/opt/log-proxy/ssl/logs.nextgxdx.com.crt')
 
 client = redis.createClient()
 
