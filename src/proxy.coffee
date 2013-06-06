@@ -1,5 +1,6 @@
 express = require 'express'
 redis = require 'redis'
+fs = require 'fs'
 app = express()
 
 options =
